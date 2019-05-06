@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjky.webapps.dao.TodoDao">
+    <select id="get" resultType="com.zjky.webapps.entity.TodoEntity">
+        select * from todo
+    </select>
+
+    <insert id="insert" parameterType="com.zjky.webapps.entity.TodoEntity">
+        insert into todo(`name`, `priority`, `status`) value (#{name}, #{priority}, #{status})
+    </insert>
+
+    <update id="updateStatus" parameterType="com.zjky.webapps.entity.TodoEntity">
+        update todo set `status` = 1 where id=#{id}
+    </update>
+
+    <delete id="deleteTodo" parameterType="com.zjky.webapps.entity.TodoEntity">
+        delete from todo where id=#{id}
+    </delete>
+</mapper>
